@@ -1,1 +1,42 @@
-{}
+{
+  "title": {
+    "file": "audio/title.mp3",
+    "durationInSeconds": 17.26
+  },
+  "conclusion": {
+    "file": "audio/conclusion.mp3",
+    "durationInSeconds": 49.22
+  },
+  "background": {
+    "file": "audio/background.mp3",
+    "durationInSeconds": 40.39
+  },
+  "why-co": {
+    "file": "audio/why-co.mp3",
+    "durationInSeconds": 38.23
+  },
+  "success-factors": {
+    "file": "audio/success-factors.mp3",
+    "durationInSeconds": 38.83
+  },
+  "flow": {
+    "file": "audio/flow.mp3",
+    "durationInSeconds": 35.33
+  },
+  "checklist": {
+    "file": "audio/checklist.mp3",
+    "durationInSeconds": 22.46
+  },
+  "kpi": {
+    "file": "audio/kpi.mp3",
+    "durationInSeconds": 15.7
+  },
+  "summary": {
+    "file": "audio/summary.mp3",
+    "durationInSeconds": 31.54
+  },
+  "closing": {
+    "file": "audio/closing.mp3",
+    "durationInSeconds": 5.93
+  }
+}
