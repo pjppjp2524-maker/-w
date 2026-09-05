@@ -3,13 +3,10 @@ import { Composition } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
 import { ScriptVideo } from "./Script/ScriptVideo";
-import { slides } from "./Script/data";
+import { totalDurationInFrames } from "./Script/durations";
 
 const scriptVideoFps = 30;
-const scriptVideoDurationInFrames = slides.reduce(
-  (sum, s) => sum + Math.round(s.seconds * scriptVideoFps),
-  0,
-);
+const scriptVideoDurationInFrames = totalDurationInFrames(scriptVideoFps);
 
 // Each <Composition> is an entry in the sidebar!
 

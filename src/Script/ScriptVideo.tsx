@@ -1,6 +1,7 @@
 import React from "react";
-import { Series, useVideoConfig } from "remotion";
+import { Audio, Series, staticFile, useVideoConfig } from "remotion";
 import { slides } from "./data";
+import { getAudioFile, getSlideDurationInFrames } from "./durations";
 import { TitleSlide } from "./components/TitleSlide";
 import { BulletSlide } from "./components/BulletSlide";
 import { ComparisonSlide } from "./components/ComparisonSlide";
@@ -20,12 +21,14 @@ export const ScriptVideo: React.FC = () => {
     <div style={{ background: theme.bg, width: "100%", height: "100%" }}>
       <Series>
         {slides.map((slide) => {
-          const durationInFrames = Math.round(slide.seconds * fps);
+          const durationInFrames = getSlideDurationInFrames(slide, fps);
+          const audioFile = getAudioFile(slide.id);
           return (
             <Series.Sequence
               key={slide.id}
               durationInFrames={durationInFrames}
             >
+              {audioFile ? <Audio src={staticFile(audioFile)} /> : null}
               {slide.kind === "title" ? (
                 <TitleSlide data={slide} durationInFrames={durationInFrames} />
               ) : null}

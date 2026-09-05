@@ -37,6 +37,25 @@ npx remotion render
 npx remotion upgrade
 ```
 
+## Adding narration audio (TwoStageClose)
+
+The `TwoStageClose` composition (`src/Script/`) shows a 10-slide narrated
+deck. To add your own recorded narration:
+
+1. Record one audio file per slide and drop it into `public/audio/`, named
+   after the slide id: `title`, `conclusion`, `background`, `why-co`,
+   `success-factors`, `flow`, `checklist`, `kpi`, `summary`, `closing`
+   (see `src/Script/data.ts` for the exact narration text of each slide).
+   `.mp3`, `.wav`, `.m4a`, `.aac` and `.ogg` are all supported.
+2. Run `npm run sync-audio`. This reads each file's real length with
+   ffmpeg and writes it to `src/Script/audioManifest.json`, so that
+   slide's on-screen duration matches your recording (plus a short pause)
+   instead of the estimated seconds in `data.ts`.
+3. Re-render: `npx remotion render TwoStageClose out/two-stage-close.mp4`.
+
+Slides with no recording yet keep using the estimated duration from
+`data.ts`, so you can add narration one slide at a time.
+
 ## Docs
 
 Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
