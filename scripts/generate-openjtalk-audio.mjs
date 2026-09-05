@@ -73,6 +73,11 @@ for (const [id, text] of Object.entries(READINGS)) {
     OPEN_JTALK_VOICE,
     "-r",
     "1.0",
+    // Raise the F0 global-variance weight above its 1.0 default: HMM
+    // synthesis over-smooths pitch, which is most of why this voice
+    // sounds flat/robotic and mangles sentence-final intonation.
+    "-jf",
+    "1.35",
     "-ow",
     wavPath,
     txtPath,
