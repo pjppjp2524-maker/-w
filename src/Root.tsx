@@ -2,6 +2,14 @@ import "./index.css";
 import { Composition } from "remotion";
 import { HelloWorld } from "./HelloWorld";
 import { Logo } from "./HelloWorld/Logo";
+import { ScriptVideo } from "./Script/ScriptVideo";
+import { slides } from "./Script/data";
+
+const scriptVideoFps = 30;
+const scriptVideoDurationInFrames = slides.reduce(
+  (sum, s) => sum + Math.round(s.seconds * scriptVideoFps),
+  0,
+);
 
 // Each <Composition> is an entry in the sidebar!
 
@@ -39,6 +47,16 @@ export const RemotionRoot: React.FC = () => {
           logoColor1: "#91dAE2",
           logoColor2: "#86A8E7",
         }}
+      />
+
+      <Composition
+        // npx remotion render TwoStageClose
+        id="TwoStageClose"
+        component={ScriptVideo}
+        durationInFrames={scriptVideoDurationInFrames}
+        fps={scriptVideoFps}
+        width={1920}
+        height={1080}
       />
     </>
   );
